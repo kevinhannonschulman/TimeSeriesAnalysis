@@ -1,0 +1,21 @@
+# docker-compose.yml
+version: '3'
+services:
+  database:
+    container_name: "local_db"
+    restart: "always"
+    image: "postgres" # use latest official postgres version
+    env_file:
+      - database.env # configure postgres
+    volumes:
+      - ./initdb.sh:/docker-entrypoint-initdb.d/initdb.sh
+      - ./data.sh:/docker-entrypoint-data.d/data.sh
+      - database-data:/var/lib/postgresql/data/ # persist data even if container shuts downvolumes:
+      - type: bind
+        source: ./my_table.csv
+        target: /data/my_table.csv
+    ports: 
+      - 5432:5432
+volumes:
+  database-data: # named volumes can be managed easier using docker-compose
+
