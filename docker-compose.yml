@@ -12,8 +12,8 @@ services:
       - ./data.sh:/docker-entrypoint-data.d/data.sh
       - database-data:/var/lib/postgresql/data/ # persist data even if container shuts downvolumes:
       - type: bind
-        source: ./my_table.csv
-        target: /data/my_table.csv
+        source: ./SuperstoreSalesData.csv
+        target: /data/SuperstoreSalesData.csv
     ports: 
       - 5432:5432
 volumes:
