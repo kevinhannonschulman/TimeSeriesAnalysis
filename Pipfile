@@ -10,6 +10,8 @@ pandas = "*"
 scipy = "*"
 dash = "*"
 black = "==18.9b0"
+dbconnect = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.7"
