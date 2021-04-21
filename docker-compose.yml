@@ -24,7 +24,13 @@ services:
       - 8000:8000
     env_file:
       - database.env # configure postgres
-    
+    volumes:
+      - type: bind
+        source: ./test_query.py
+        target: /scripts/test_query.py
+    depends_on:
+        - database
+
 
 volumes:
   database-data: # named volumes can be managed easier using docker-compose

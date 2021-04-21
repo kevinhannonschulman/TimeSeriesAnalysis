@@ -8,8 +8,6 @@ ENV PYTHONFAULTHANDLER 1
 
 FROM base AS python-deps
 
-apk add postgresql-dev
-
 # Install pipenv and compilation dependencies
 RUN pip install pipenv
 RUN apt-get update && apt-get install -y --no-install-recommends gcc
