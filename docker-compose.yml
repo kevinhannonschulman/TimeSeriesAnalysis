@@ -2,7 +2,7 @@
 version: '3'
 services:
   database:
-    container_name: "local_db"
+    container_name: "timeseries_db"
     restart: "always"
     image: "postgres" # use latest official postgres version
     env_file:
@@ -16,6 +16,22 @@ services:
         target: /data/SuperstoreSalesData.csv
     ports: 
       - 5432:5432
+  python_env:
+    build: .
+    container_name: "python_env"
+    restart: "always"
+    ports:
+      - 8000:8000
+    env_file:
+      - database.env # configure postgres
+    volumes:
+      - type: bind
+        source: ./test_query.py
+        target: /scripts/test_query.py
+    depends_on:
+        - database
+
+
 volumes:
   database-data: # named volumes can be managed easier using docker-compose
 
