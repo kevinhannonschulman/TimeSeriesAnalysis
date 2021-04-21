@@ -2,7 +2,7 @@
 version: '3'
 services:
   database:
-    container_name: "local_db"
+    container_name: "timeseries_db"
     restart: "always"
     image: "postgres" # use latest official postgres version
     env_file:
@@ -12,10 +12,18 @@ services:
       - ./data.sh:/docker-entrypoint-data.d/data.sh
       - database-data:/var/lib/postgresql/data/ # persist data even if container shuts downvolumes:
       - type: bind
-        source: ./SuperstoreSalesData.csv
-        target: /data/SuperstoreSalesData.csv
+        source: ./my_table.csv
+        target: /data/my_table.csv
     ports: 
       - 5432:5432
+  python_env:
+    build: .
+    container_name: "python_env"
+    restart: "always"
+    ports:
+      - 8000:8000
+    
+
 volumes:
   database-data: # named volumes can be managed easier using docker-compose
 
