@@ -12,6 +12,8 @@ dash = "*"
 black = "==18.9b0"
 dbconnect = "*"
 psycopg2-binary = "*"
+prophet = "*"
+jupyter = "*"
 
 [requires]
 python_version = "3.7"
