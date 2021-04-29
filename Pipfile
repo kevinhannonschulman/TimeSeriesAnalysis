@@ -13,8 +13,10 @@ black = "==18.9b0"
 dbconnect = "*"
 psycopg2-binary = "*"
 jupyter = "*"
-prophet = "*"
 python-dotenv = "*"
+pystan = "*"
+importlib-metadata = "==1.7.0"
+cython = "*"
 
 [requires]
 python_version = "3.7"
