@@ -16,6 +16,7 @@ jupyter = "*"
 python-dotenv = "*"
 pystan = "*"
 importlib-metadata = "==1.7.0"
+cython = "*"
 
 [requires]
 python_version = "3.7"
